@@ -1,0 +1,19 @@
+- hosts: all
+  gather_facts: no
+  collections:
+  - arubanetworks.aoscx
+  vars:
+    ansible_connection: network_cli
+  tasks:
+  - name: First delete VLAN 44, then configure VLAN 45, and lastly create VLAN 46
+    aoscx_config:
+      before: 
+        - no vlan 45
+      parents: 
+        - vlan 44
+      lines:
+        - name testvlan
+        - description test_vlan
+      after: 
+        - vlan 47
+

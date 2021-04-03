@@ -1,0 +1,36 @@
+all:
+  hosts:
+    sw1:
+      ansible_host: 192.168.122.141
+      ansible_user: admin
+      ansible_password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          61363734306637396562356430323736396631323362643738316435326339333633373961393539
+          6336313430323034643966396463383666343965636561660a666231356636626136636161636335
+          31343033663239373835366238613364353166626531336130666465313834333737333235333230
+          3663363565343631310a313662316239363838363434343034393363386639653331663464396332
+          6665
+ 
+      ansible_connection: httpapi  # REST API connection method
+      ansible_network_os: arubanetworks.aoscx.aoscx
+      ansible_httpapi_validate_certs: False
+      ansible_httpapi_use_ssl: True
+      ansible_acx_no_proxy: True
+
+    core:
+      ansible_host: 192.168.122.142
+      ansible_user: admin
+      ansible_password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          61363734306637396562356430323736396631323362643738316435326339333633373961393539
+          6336313430323034643966396463383666343965636561660a666231356636626136636161636335
+          31343033663239373835366238613364353166626531336130666465313834333737333235333230
+          3663363565343631310a313662316239363838363434343034393363386639653331663464396332
+          6665
+
+      ansible_connection: httpapi  # REST API connection method
+      ansible_network_os: arubanetworks.aoscx.aoscx
+      ansible_httpapi_validate_certs: False
+      ansible_httpapi_use_ssl: True
+      ansible_acx_no_proxy: True
+

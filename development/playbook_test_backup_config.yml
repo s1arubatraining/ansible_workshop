@@ -1,0 +1,26 @@
+- hosts: all
+  gather_facts: no
+  collections:
+  - arubanetworks.aoscx
+  tasks:
+  - name: Copy Running Config to local as JSON
+    aoscx_backup_config:
+      config_name: 'running-config'
+      output_file: 'running-config.json'
+
+  - name: Copy Startup Config to local as JSON
+    aoscx_backup_config:
+      config_name: 'startup-config'
+      output_file: 'startup-config.json'
+
+  - name: Copy Checkpoint Config to local as JSON
+    aoscx_backup_config:
+      config_name: 'running-config'
+      output_file: 'running.cfg'
+
+  - name: Copy Running Config to TFTP server as JSON
+    aoscx_backup_config:
+      config_name: 'running-config'
+      remote_output_file_tftp_path: 'tftp://192.168.1.119/running.json'
+      config_type: 'json'
+      vrf: 'mgmt'

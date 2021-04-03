@@ -1,0 +1,16 @@
+- hosts: all
+  gather_facts: no
+  collections:
+    - arubanetworks.aoscx
+  vars:
+    ansible_connection: network_cli
+  tasks:
+    - name: Execute show run on the switch
+      aoscx_command:
+        commands: ['show run']
+      register: command_output
+
+    - name: Print command output
+      debug:
+        msg: "{{ command_output }}"
+

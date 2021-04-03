@@ -1,0 +1,14 @@
+- hosts: all
+  gather_facts: no
+  collections:
+  - arubanetworks.aoscx
+  tasks:
+  - name: Back up running-config, then create VLAN 100, and save running-config to startup-config if change was made
+    aoscx_config:
+      backup: True
+      lines: 
+        - vlan 100
+      backup_options:
+        filename: backup.cfg
+        dir_path: /root/ansible_workshop
+      save_when: changed

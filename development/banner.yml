@@ -1,0 +1,16 @@
+- hosts: all
+  gather_facts: no
+  collections:
+    - arubanetworks.aoscx
+  #vars:
+   # ansible_connection: network_cli
+  tasks:
+   # - name: Adding or Updating Banner
+    #  aoscx_banner:
+     #   banner_type: banner
+      #  banner: "Aruba Rocks!"
+    - name: delete banner
+      aoscx_banner:
+        banner_type: banner
+        state: delete
+

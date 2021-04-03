@@ -1,0 +1,9 @@
+- hosts: all
+  gather_facts: no
+  collections:
+  - arubanetworks.aoscx
+  tasks:
+  - name: Copy running-config to backup checkpoint
+    aoscx_checkpoint:
+      source_config: 'running-config'
+      destination_config: 'checkpoint_20210330'
