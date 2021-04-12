@@ -6,8 +6,8 @@
   #  ansible_connection: network_cli
   tasks:
     - name: Add or Update Banner
-        aoscx_banner:
-          banner_type: banner
-          banner: "Aruba Rocks!!!!!!!!!!!!!!!!!!!!!!"
+      aoscx_banner:
+        banner_type: banner
+        banner: "Aruba Rocks!!!!!!!!!!!!!!!!!!!!!!"
 
 
