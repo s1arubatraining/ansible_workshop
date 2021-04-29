@@ -3,7 +3,7 @@ all:
     branch1:
       hosts:
         access_1:
-          ansible_host: 10.100.1.2
+          ansible_host: 10.1.1.100
           ansible_user: admin
           ansible_password: admin
           ansible_connection: httpapi
